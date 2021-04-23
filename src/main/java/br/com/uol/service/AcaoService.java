@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import br.com.uol.exception.BusinessException;
 import br.com.uol.helper.CSVHelper;
 import br.com.uol.model.Acao;
 import br.com.uol.repository.AcaoRepository;
@@ -50,7 +51,7 @@ public class AcaoService {
 		if (!optional.isPresent()) {
 			acaoRepository.save(acao);
 		} else {
-			// throw new BusinessException("CPF já cadastrado!");
+			 throw new BusinessException("Ação já cadastrado!");
 		}
 	}
 
